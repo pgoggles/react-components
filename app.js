@@ -45,7 +45,6 @@ ReactDOM.render(<ul>{listItems}</ul>, document.getElementById("app"));
 
 
 // Implemented Using Props & ES6 Classes
-var props = {groceryItems: ['peaches', 'plums', 'cherries', 'bananas']}
 class GroceryListItems extends React.Component {
   constructor(props) {
     super(props);
@@ -57,15 +56,14 @@ class GroceryListItems extends React.Component {
 
 var GroceryListRender = (props) => (
   <ul>
-    {props.props.groceryItems.map(groceryItem => <GroceryListItems groceryItem={groceryItem} />)}
+    {props.groceryItems.map(groceryItem => <GroceryListItems groceryItem={groceryItem} />)}
   </ul>
 );
 
-ReactDOM.render(<GroceryListRender props={props} />, document.getElementById("app"));
+ReactDOM.render(<GroceryListRender groceryItems={['peaches', 'plums', 'cherries', 'bananas']} />, document.getElementById("app"));
 
 
 // Implemented State
-var props = {groceryItems: ['peaches', 'plums', 'cherries', 'bananas']}
 class GroceryListItemMultiple extends React.Component {
   constructor(props) {
     super(props);
@@ -90,10 +88,10 @@ class GroceryListItemMultiple extends React.Component {
 
 var GroceryListRender = (props) => (
   <ul>
-    {props.props.groceryItems.map(groceryItem => <GroceryListItemMultiple groceryItem={groceryItem} />)}
+    {props.groceryItems.map(groceryItem => <GroceryListItemMultiple groceryItem={groceryItem} />)}
   </ul>
 );
 
-ReactDOM.render(<GroceryListRender props={props} />, document.getElementById("app"));
+ReactDOM.render(<GroceryListRender groceryItems={['peaches', 'plums', 'cherries', 'bananas']} />, document.getElementById("app"));
 
 
