@@ -44,4 +44,23 @@ const listItems = GroceryList.map(GroceryListItem);
 ReactDOM.render(<ul>{listItems}</ul>, document.getElementById("app"));
 
 
+// Implemented Using Props & ES6 Classes
+var props = {groceryItems: ['peaches', 'plums', 'cherries', 'bananas']}
+class GroceryListItems extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render () {
+   return <li>{this.props.groceryItem}</li>;
+  }
+}
+
+var GroceryListRender = (props) => (
+  <ul>
+    {props.props.groceryItems.map(groceryItem => <GroceryListItems groceryItem={groceryItem} />)}
+  </ul>
+);
+
+ReactDOM.render(<GroceryListRender props={props} />, document.getElementById("app"));
+
 
