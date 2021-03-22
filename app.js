@@ -3,35 +3,35 @@ let GroceryList = ['plums', 'peaches', 'apples', 'cherries', 'blueberries'];
 // Implemented using separate item functions
 var App = () => (
   <div>
-    <h2>My Todo List</h2>
-    <TodoList />
+    <h2>My Grocery List</h2>
+    <GroceryListItem />
   </div>
 );
-var TodoList = () => (
+var GroceryListItem = () => (
   <ul>
   <Peaches />
   <Plums />
   </ul>
 )
 var Peaches = () => (
-  <li>{GroceryList[1]}</li>
+  <li>{GroceryListItem[1]}</li>
 )
 var Plums = () => (
-  <li>{GroceryList[0]}</li>
+  <li>{GroceryListItem[0]}</li>
 )
 ReactDOM.render(<App />, document.getElementById("app"));
 
 //Implemented Using Props
 var App = () => (
   <div>
-    <h2>My Todo List</h2>
-    <TodoList todos={['plums', 'peaches']}/>
+    <h2>My Grocery List</h2>
+    <GroceryListItem groceryList={['plums', 'peaches']}/>
   </div>
 );
-var TodoList = (prop) => (
+var GroceryListItem = (prop) => (
   <ul>
-  <li>{prop.todos[0]}</li>
-  <li>{prop.todos[1]}</li>
+  <li>{prop.groceryList[0]}</li>
+  <li>{prop.groceryList[1]}</li>
   </ul>
 )
 ReactDOM.render(<App />, document.getElementById("app"));
@@ -42,3 +42,6 @@ var GroceryListItem = (item) => (
 )
 const listItems = GroceryList.map(GroceryListItem);
 ReactDOM.render(<ul>{listItems}</ul>, document.getElementById("app"));
+
+
+
