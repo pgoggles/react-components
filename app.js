@@ -64,3 +64,36 @@ var GroceryListRender = (props) => (
 ReactDOM.render(<GroceryListRender props={props} />, document.getElementById("app"));
 
 
+// Implemented State
+var props = {groceryItems: ['peaches', 'plums', 'cherries', 'bananas']}
+class GroceryListItemMultiple extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      done: false
+    };
+  }
+  onHover() {
+    this.setState({
+      done: !this.state.done
+    });
+  }
+  render () {
+    var style = {
+      fontWeight: this.state.done ? 'bold' : 'normal'
+    };
+    return (
+      <li style={style} onMouseOver={this.onHover.bind(this)}>{this.props.groceryItem}</li>
+    );
+  }
+}
+
+var GroceryListRender = (props) => (
+  <ul>
+    {props.props.groceryItems.map(groceryItem => <GroceryListItemMultiple groceryItem={groceryItem} />)}
+  </ul>
+);
+
+ReactDOM.render(<GroceryListRender props={props} />, document.getElementById("app"));
+
+
